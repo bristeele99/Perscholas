@@ -1,0 +1,26 @@
+title {
+    text-align: center;
+    height: 200px;
+    width: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:aquamarine;
+    background-color: coral;
+}
+
+body{
+    color: rgb(255, 176, 147);
+    background-color: rgb(185, 252, 230);
+
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+button {
+    position: relative;
+}

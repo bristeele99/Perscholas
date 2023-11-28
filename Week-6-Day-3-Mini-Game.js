@@ -4,7 +4,6 @@ class Ship {
         this.firepower = firepower ||  (Math.floor(Math.random() * (2)) + 2);
         this.accuracy = accuracy ||  (Math.floor(Math.random() * (.2)) + .6);
         this.isIntact= true; //Flag to indicate was destroyed
-        this.attack = this.attack.bind(this)
     }
     attack(target){
 
@@ -20,13 +19,13 @@ class Ship {
     }
 
     log(message) {
-        const logContainer = document.getElementById('logContainer');
         logContainer.innerHTML += `<p>${message}</p>`;
         logContainer.scrollTop = logContainer.scrollHeight;
     } 
         
 }
 
+const logContainer = document.getElementById('logContainer');
 // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 //_ _ _ _ _ _ _ _ Ship Creation_ _ _ _ _ _ _ _ _ _ _ 
 
