@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+html {
+  border:5px;
+  color: gray;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body{
   min-height: 100vh;
+  font-family: sans-serif;
+  max-width:1000px;
+  margin:auto;
+}
+
+title{
+  size: larger;
+}
+
+header,main,footer{
+  padding: 1rem 1rem 2rem 2rem ;
+
+}
+
+h1 {
+  color: tomato;
+}
+
+.photo {
+  width: 100%;
+}
+
+.top-nav a{
+  color: gray;
+}
+.top-nav ul{
+  list-style-type: none;
+  padding: 0;
+  display:flex;
+  color: gray;
+  justify-content:space-between;
+}
+
+.bottom-nav ul{
+  list-style-type: none;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.bottom-nav a{
+  color: tomato;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a{
+  float:right;
+  color:tomato;
+  font-weight: bold;
+}
+
+article{
+  margin-bottom: 4rem;
+  border: 1px solid lightgray;
+  padding-bottom: 2rem;
+}
+
+article p::first-letter{
+  font-size: 6rem;
+  float: left;
+  line-height: 1;
+  margin-right: 15px;
+  color: var(--light-gray);
+  color:lightgray;
 }
