@@ -1,0 +1,49 @@
+.button {
+  transition-duration: 0.4s;
+  background-color: #04AA6D;
+  color: black;
+  border: 2px solid white; /* Green */
+  border-radius: 2em;  
+  display:block;
+  padding: 20px;
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace;
+  margin:auto;
+}
+
+.button:hover {
+  background-color: #04AA6D; /* Green */
+  color: white;
+}
+
+#num{
+  color: black;
+  border: 2px solid #04AA6D; /* Green */
+  border-radius: 2em;
+  display:block;
+  padding: 10px;
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace; 
+  margin:auto;
+}
+
+#valCC{
+  color: black;
+  background-color: #04AA6D;
+  border: 2px solid #04AA6D; /* Green */
+  display:block;
+  padding: 20px;
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace; 
+  text-align: center;
+  width: 50vw;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  margin: 25% 25% 25%;
+}
+
+#validState {
+  color: black;
+  margin-top: 10px; /* Add some space between button and validation result */
+}
