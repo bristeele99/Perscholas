@@ -4,7 +4,7 @@ require('dotenv').config();
 const React = require('react');
 const app = express();
 const mongoose = require('mongoose');
-const Flight = require('./models/Flight.js');
+const Log = require('./models/Log.js');
 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
@@ -40,10 +40,22 @@ app.get('/logs/', (req,res) => {
 
 //New  /logs/new GET New.jsx none
 app.get('/logs/new', (req, res) => {
-    res.send('new');
+    res.render('new');
 })
 //Create /logs/ POST none Log.create(req.body)
-
+app.post('/logs/', (req,res) =>{
+    if(req.body.shipIsBroken === 'on') {
+        req.body.shipIsBroken = true;
+    }else {
+        req.body.shipIsBroken =false;
+    }
+    Log.create(req.body)
+    .then((createdLog) =>{
+        console.log(req.body);
+        // res.redirect('logs')
+    })
+    .catch((err) => console.error(err));
+});
 //Edit
 //Update
 //Destroy
