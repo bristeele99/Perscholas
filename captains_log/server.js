@@ -26,6 +26,32 @@ app.use((req, res, next) => {
   next();
 });
 
+// Seed Route
+app.get('/logs/seed', (req, res) => {
+    Log.create([
+      {
+        title: '2nd Day',
+        entry: 'Patched Hole',
+        shipIsBroken: true
+      },
+      {
+        title: '2nd Week',
+        entry: 'Nothing to Report',
+        shipIsBroken: false
+      },
+      {
+        title: '3rd Week',
+        entry: 'Damage Taken',
+        shipIsBroken: true
+      }
+    ])
+      .then(createdLogs => res.redirect('/logs'))
+      .catch(err => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+      });
+  });
+
 //Index
 
 app.get('/logs/', (req,res) => {
@@ -51,8 +77,7 @@ app.post('/logs/', (req,res) =>{
     }
     Log.create(req.body)
     .then((createdLog) =>{
-        console.log(req.body);
-        // res.redirect('logs')
+        res.redirect('Show')
     })
     .catch((err) => console.error(err));
 });
