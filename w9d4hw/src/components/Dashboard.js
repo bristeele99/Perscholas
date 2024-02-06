@@ -12,8 +12,10 @@ function Dashboard(props) {
   // Map over the array and render each stock item
   const stockList = stockDataArray.map((stock, index) => (
     <Link key={index} to={`/stocks/${stock.symbol}`}>
-      <li>{stock.name}</li>
-      <li>{stock.symbol}</li>
+      <li>Name: {stock.name}</li>
+      <li>Symbol: {stock.symbol}</li>
+      <li className="right">Price: {stock.lastPrice}</li>
+      <li className="right">Change: {stock.change}</li>
     </Link>
   ));
 

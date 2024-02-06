@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 const Stock = ({ stockData }) => {
+  console.log(stock);
   const { symbol } = useParams();
   const stock = stockData.find(d => d.symbol === symbol);
 

@@ -9,7 +9,6 @@ import Main from './components/Main.js';
 
 
 
-
 function App(props) {
   console.log('App component rendered');
   return (

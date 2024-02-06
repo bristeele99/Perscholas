@@ -1,3 +1,31 @@
+/* Dashboard.css */
+
+/* Add any specific styles for your Dashboard component here */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+
+
+.link {
+  display: flex;
+  flex-direction: column; /* Arrange items in a column */
+  text-decoration: none; /* Remove default link underline */
+  color: #333; /* Set link color */
+  padding: 8px; /* Add padding for spacing */
+  border-bottom: 1px solid #ccc; 
+}
+
+.link:hover {
+  background-color: #f0f0f0; /* Add a background color on hover */
+}
+
+/* Add additional styles as needed */
+
+
+
 .App {
   font-family: sans-serif;
   text-align: center;
