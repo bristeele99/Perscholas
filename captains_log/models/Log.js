@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const logSchema = new mongoose.Schema({
-    Title: {type: String},
-    Entry: {type: String},
+    title: {type: String},
+    entry: {type: String},
     shipIsBroken: { type: Boolean, default: true}
 }, 
 { timestamps: true}
