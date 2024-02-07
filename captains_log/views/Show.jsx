@@ -12,6 +12,7 @@ class Show extends React.Component {
         Entry:{log.entry}<br/>
         {log.shipIsBroken ? 'The ship is broken!' : 'It is ready for sailing!' }<br/>
         <p>Timestamp:{formattedDate}{formattedTime}</p><br/>
+        <a href={`/logs/${log._id}/edit`}>Edit Log</a><br/>
         <a href='/logs'>Back to Logs</a>
       </div>
       );

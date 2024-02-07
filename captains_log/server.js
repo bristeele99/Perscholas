@@ -107,7 +107,33 @@ app.post('/logs', (req,res) =>{
     .catch((err) => console.error(err));
 });
 //Edit
+app.get('/logs/:id/edit', (req,res) =>{
+    Log.findOne({_id: req.params.id})
+    .then(foundLog => res.render('Edit', {
+        log: foundLog
+    }))
+    .catch(err => console.error(err));
+})
+
 //Update
+app.put('/logs/:id', (req, res) => {
+    if (req.body.shipIsBroken === 'on') {
+        req.body.shipIsBroken = true;
+    } else {
+        req.body.shipIsBroken = false;
+    }
+    Log.updateOne({ _id: req.params.id }, req.body)
+    .then(updateInfo => {
+        // console.log(updateInfo);
+        res.redirect(`/logs/${req.params.id}`);
+    })
+    .catch((err) => {
+        console.error(err)
+        res.status(400).json({ err })
+    });
+});
+
+
 //Destroy
 
 app.delete('/logs/:id', (req,res) =>{
