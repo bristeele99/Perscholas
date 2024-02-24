@@ -1,0 +1,31 @@
+<!-- views/fibonacci.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Sequence Checker</title>
+</head>
+<body>
+    <h1>Fibonacci Sequence Checker</h1>
+
+     <!-- Add a form with an input for the user to enter a number -->
+     <form action="/fibonacci" method="GET">
+        Input Number Here: <input type="number" name="number" required/> <br/>
+        <input type="submit" name="submitButton" value="Check Number"/>
+    </form>
+    
+    <% if (isInFibonacciSequence) { %>
+        <p><%= userNumber %> is in the Fibonacci sequence!</p>
+    <% } else { %>
+        <p><%= userNumber %> is not in the Fibonacci sequence.</p>
+    <% } %>
+
+    <p>Fibonacci sequence with 10 terms:</p>
+    <ul>
+        <% for (const number of fibonacciResult) { %>
+            <li><%= number %></li>
+        <% } %>
+    </ul>
+</body>
+</html>
