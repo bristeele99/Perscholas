@@ -1,0 +1,115 @@
+
+header {
+    text-align:center;
+    color: orangered;
+    font-family: monospace;
+    font-size: 25px;
+    background-color:black;
+    border: 2px solid orangered;
+    border-radius: 12px;
+}
+
+
+body{
+    background-color: rgba(0,0,0,.95);
+}
+
+#rules{
+    color:white;
+    font-family:monospace;
+    font-size:25px;
+    text-align: justify;
+    padding: 5% 5% 5% 5%;
+}
+
+#buttonsContainer {
+   display: flex;
+   justify-content: center;
+}
+
+button {
+    background-color: black; 
+    border: 2px solid orangered;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 32px;
+    margin: 2px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 36px;
+    font-family: monospace;
+    font-style: bold;
+    }
+
+.hidden {
+    display:none;
+}
+
+
+#logContainer p {
+    color:white;
+    margin-left:5%;
+    margin-right:5%;
+    padding: 15px 15px;
+    background-color: black;
+    font-family:monospace;
+    font-size:20px;
+    text-align: center;
+    border:2px solid orangered;
+    border-radius: 12px;
+    display:flex;
+    display:column-reverse;
+  }
+
+ 
+
+#floatLeft{
+    float:left;
+}
+
+#floatRight{
+    float:right;
+}
+
+#centerLog{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.scroll-container{
+    width: 600px; /* Set the width of your container */
+    height: 300px; /* Set the height of your container */
+    overflow-y: auto; /* Use "auto" to show a vertical scroll bar only when needed */
+    border: 1px solid orangered; /* Optional: Add a border for better visibility */
+    border-radius: 12px;
+}
+
+.belowButtons p{
+    color:white;
+    padding: 15px 32px;
+    background-color: black;
+    font-family:monospace;
+    font-size:20px;
+    text-align: center;
+    border:2px solid orangered;
+    border-radius: 12px;
+}
+
+.belowButtons{
+    display:flex;
+    justify-content: center;
+}
+
+
+#Trick-List{
+    color:white;
+    padding: 15px 32px;
+    background-color: black;
+    font-family:monospace;
+    font-size:20px;
+    text-align: center;
+    border:2px solid orangered;
+    border-radius: 12px;
+    margin:5px;
+}
