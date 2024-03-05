@@ -58,7 +58,7 @@ button {
     border:2px solid orangered;
     border-radius: 12px;
     display:flex;
-    display:column-reverse;
+    
   }
 
  
@@ -85,7 +85,7 @@ button {
     border-radius: 12px;
 }
 
-.belowButtons p{
+.scoreBox p{
     color:white;
     padding: 15px 32px;
     background-color: black;
@@ -96,13 +96,13 @@ button {
     border-radius: 12px;
 }
 
-.belowButtons{
+.scoreBox{
     display:flex;
     justify-content: center;
 }
 
 
-#Trick-List{
+#trick-list{
     color:white;
     padding: 15px 32px;
     background-color: black;
@@ -113,3 +113,5 @@ button {
     border-radius: 12px;
     margin:5px;
 }
+
+
