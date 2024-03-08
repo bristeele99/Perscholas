@@ -32,6 +32,7 @@ const statusParagraph1 = document.getElementById("opponentStatus");
 
 let gameStarted = false;
 let keysToCheck = [];
+let loserState = false;
 
 //////////////////////////////////////////////////
 /////////////////////BUTTONS//////////////////////
@@ -58,23 +59,15 @@ restartButton.addEventListener("click", () => {
 });
 
 opponentSetsButton.addEventListener("click", () => {
-  checkOpponentScore();
+  opponentSetsTrick();
   toggleButtons( "opponentSets-button");
 });
 
 opponentFollowsButton.addEventListener("click", () => {
   opponentFollows();
-  toggleButtons("trick-list", "trick-button", "opponentFollows-button")
+  toggleButtons( "opponentFollows-button")
 })
 
-myTurnButton.addEventListener("click", () => {
-  tonyLoserCheck();
-  toggleButtons('trick-list', 'trick-button', 'my-turn-button')
-})
-
-mySetButton.addEventListener("click", () => {
-  toggleButtons('trick-list', 'trick-button', 'my-set-button')
-})
 
 //toggle for choosing player at the start
 player1button.addEventListener("click", () => {
@@ -87,6 +80,7 @@ player1button.addEventListener("click", () => {
     "playerStatus"
   );
   gameStarted = true;
+  trickButton.click();
 });
 player2button.addEventListener("click", () => {
   toggleButtons("player1", "player2", "restart");
@@ -221,15 +215,25 @@ function checkLetters(player) {
 ////////////////////////////////////////////////
 
 function checkTonySkill() {
-  const setRandomNum = Math.floor(Math.random() * 10);
-
-  if (gameStarted) {
+  if (gameStarted && !loserState) { // Corrected condition
+    const setRandomNum = Math.floor(Math.random() * 10);
     if (tonyHawk.skill > setRandomNum) {
       tonyHawk.log(`Tony: Trick Set!`);
-      toggleButtons("trick-list", "trick-button", "opponentFollows-button");
+      toggleButtons("opponentFollows-button", "trick-list", "trick-button"); // Corrected button name
     } else {
       tonyHawk.log(`Tony: Trick not set.`);
-      toggleButtons("trick-list", "trick-button", "opponentSets-button");
+      toggleButtons("opponentSets-button", "trick-list", "trick-button");
+    }
+  } else if (gameStarted && loserState) { // Corrected condition
+
+    const setRandomNum = Math.floor(Math.random() * 10);
+    if (tonyHawk.skill > setRandomNum) {
+      tonyHawk.log(`Tony: You Nailed It.`);
+      toggleButtons("opponentSets-button", "trick-list", 'trick-button');
+    } else {
+      tonyHawk.log(`Tony: You missed. Check Your Letters`);
+      checkLetters(tonyHawk);
+      toggleButtons('opponentSets-button', "trick-list", "trick-button");
     }
   }
 }
@@ -239,34 +243,25 @@ function opponentFollows() {
   if (opponent.skill < setRandomNum1) {
     opponent.log("Opponent: Wiped out! LETTER added!");
     checkLetters(opponent);
-    toggleButtons("my-turn-button", "trick-list", "trick-button");
+    toggleButtons("trick-list","trick-button");
   } else {
     opponent.log("Opponent: Trick Executed! No LETTER.");
-    toggleButtons("opponent-button", "trick-list", "trick-button");
+    toggleButtons("trick-list", "trick-button");
   }
 }
 
-function checkOpponentScore() {
+function opponentSetsTrick() {
   const setRandomNum1 = Math.floor(Math.random() * 10);
   if (gameStarted) {
     if (opponent.skill > setRandomNum1) {
       opponent.log(`Opponent: Trick Set! You're turn!`);
-      toggleButtons('my-turn-button')
+      loserState = true;
+      toggleButtons("trick-list", 'trick-button')
     } else if (opponent.skill < setRandomNum1) {
       opponent.log(`Opponent: Trick not set. You're turn`);
-      toggleButtons('my-set-button')
+      toggleButtons('trick-list', 'trick-button')
+      loserState = false;
     }
   }
 }
 
-function tonyLoserCheck() {
-  const setRandomNum = Math.floor(Math.random() * 10);
-  if (tonyHawk.skill > setRandomNum) {
-    tonyHawk.log(`Tony: You Nailed It.`);
-    toggleButtons("opponentFollows-button");
-  } else {
-    tonyHawk.log(`Tony: You missed. Check Your Letters`);
-    checkLetters(tonyHawk);
-    toggleButtons('opponentSets-button')
-  }
-}
